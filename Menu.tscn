@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://d1b5s6ircxlnt"]
 
 [node name="Menu" type="Panel"]
-custom_minimum_size = Vector2(300, 200)
+custom_minimum_size = Vector2(300, 300)
 
 [node name="Scont" type="ScrollContainer" parent="."]
-custom_minimum_size = Vector2(280, 180)
+custom_minimum_size = Vector2(280, 280)
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -19,22 +19,41 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Vbox" type="VBoxContainer" parent="Scont"]
-custom_minimum_size = Vector2(280, 180)
+custom_minimum_size = Vector2(280, 280)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Hbox" type="HBoxContainer" parent="Scont/Vbox"]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="Scont/Vbox"]
-custom_minimum_size = Vector2(0, 60)
+[node name="Label" type="Label" parent="Scont/Vbox/Hbox"]
+custom_minimum_size = Vector2(50, 100)
 layout_mode = 2
+size_flags_horizontal = 0
 theme_override_colors/font_color = Color(0, 0.85098, 0.145098, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 8
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 24
+text = "0 =>"
+autowrap_mode = 3
+
+[node name="Label2" type="Label" parent="Scont/Vbox/Hbox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0, 0.85098, 0.145098, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 24
 text = "Judul"
 autowrap_mode = 3
 
+[node name="HSeparator" type="HSeparator" parent="Scont/Vbox"]
+layout_mode = 2
+
 [node name="Label2" type="Label" parent="Scont/Vbox"]
-custom_minimum_size = Vector2(0, 116)
+custom_minimum_size = Vector2(0, 108)
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 18
 autowrap_mode = 3

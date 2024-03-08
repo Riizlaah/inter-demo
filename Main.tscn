@@ -11,19 +11,47 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_11b3k")
 
-[node name="FlowContainer" type="FlowContainer" parent="."]
+[node name="MCont" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 25
+theme_override_constants/margin_bottom = 25
 
-[node name="Refresh" type="Button" parent="FlowContainer"]
-custom_minimum_size = Vector2(200, 200)
+[node name="Vbox" type="VBoxContainer" parent="MCont"]
+layout_mode = 2
+
+[node name="SCont" type="ScrollContainer" parent="MCont/Vbox"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="FlowContainer" type="FlowContainer" parent="MCont/Vbox/SCont"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Refresh" type="Button" parent="MCont/Vbox/SCont/FlowContainer"]
+custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 focus_mode = 0
-theme_override_font_sizes/font_size = 32
+theme_override_font_sizes/font_size = 48
 text = "Refresh"
 
-[connection signal="pressed" from="FlowContainer/Refresh" to="." method="_refresh"]
+[node name="Ip_List" type="PanelContainer" parent="MCont/Vbox"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="MCont/Vbox/Ip_List"]
+custom_minimum_size = Vector2(0, 90)
+layout_mode = 2
+size_flags_vertical = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="MCont/Vbox/SCont/FlowContainer/Refresh" to="." method="_refresh"]
